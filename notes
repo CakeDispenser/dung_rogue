@@ -1,0 +1,106 @@
+MAPGEN PROCESS:
+# For now it is very simple and quite buggy, but it's already playable.
+# I want to make at least a somewhat playable pre-alpha of the game, so that's fine for now.
+1. Generate rooms
+1.1. Choose random coordinate, which would allow to generate a room NOT outside the borders of the map. +
+1.2. Check if there is no room already there. +
+1.3. If there is no room, then fill the space from the coordinate to right-bottom corner according to random room width and height. +
+1.4. Build the walls +
+1.5. Make a dictionary with rooms and potential door placements for each room. +/-
+2. Generate corridors
+2.1. Choose a room closest to the topleft corner. +
+2.2. Choose a room closest to it +
+2.3. Look for potential doors places in rooms' dictionaries, choose the places which are the closest. -
+2.4. Build a corridor between these two places. +
+2.5. Build doors. +/-
+2.6. Repeat with the second chosen room as main room until every room is connected +
+
+# PLAYER CLASS
+Player will be made as a class...
+Actually, every creature should be made as a class? -
+Then, yea, Player would probably be a subclass of Creature. +
+
+Creatures will have attributes:
+Strength - determines carryable weight?, damage with melee weapons, armor penetration?
+Dexterity - determines chance to dodge. Damage with ranged weapons.
+Vitality - determines stamina, max HP, HP regeneration rate
+Intelligence - used for magic purposes. May identify equipment passively.
+Perception? - crit chance, chance to hit, crit dmg?
+
+Creatures will also have combat stats:
+Weapon damage - percentage to weapon damage which will affect damage of equipped weapon
+Accuracy - percentage, chance to hit a target with no other effects (like dodge)
+Dodge - basically, a penalty to enemies' accuracy
+Armor penetration? - ability to penetrate armor and deal damage through it?
+# Armor will block some damage, but armor penetration will allow some of the blocked damage to pass through
+HP - health
+Stamina - energy of the creature. Used for combat maneuvers and skills.
+Mana? - magic energy, used alongside Stamina? to cast spells
+
+TRANSFER UPDATE TO STATS TO ACCORDING METHODS, SO THAT THEY UPDATE ONLY WHEN CHANGED WITH THESE METHODS +?
+I'm stupidooooooo. I have made the regeneration mechanics depend on real-time, but the game is running in turns! +
+
+FIGURE OUT HOW TO MAKE NORMAL LIGHT! (blit dark screen everywhere except an area around the player) +
+probably done, but it may get laggy... (redone, so that it's not that laggy)
+COME UP WITH A WAY TO REDRAW ONLY CHANGING TILES! I guess i have done it? +
+
+Equipment:
+Equipment will have different levels.
+For example: hatchet (axe level 1), hand axe (level 2), war axe (level 3).
+
+ALL ITEMS stats:
+1. Weight - in kilograms
+
+Weapons will have following stats:
+1. Damage - how much base damage the weapon does.
+2. Accuracy - modifier to creature accuracy with this weapon. Heavier weapons will have worse accuracy.
+3. Strength req - requirement of Strength attribute to use this weapon.
+4. Weapon type - type of the weapon like: axe, sword, mace...
+5. Hands - one-handed or two-handed
+6. Level - level of the weapon as described above.
+7. Rarity - it is described below
+
+I think I should make a weapon class?
+So, the stats in the dictionary will be templates for objects of this class.
+
+Some of weapons and armor will have enchantments, special effects that will alter/upgrade the equipment in some way.
+For example, Uncommon War Axe of Frost will deal 75% damage as physical and 25% damage as frost.
+
+Items with enchantments will have different rarities/qualities:
+Uncommon, Rare, Epic, Legendary, (Unique?)
+These rarities will make the enchantments better
+OR
+These rarities will determine the max amount of enchantments. maybe if the same enchantment is on the same weapon it will get stronger?
+
+List of Enchantments:
+Frost - some of the damage will be cold, chance to freeze
+Fire - some of the damage will be fire, chance to burn
+Acid - some of the damage will be acidic, chance to melt armor
+Shock - some of the damage will be electrical, chance to stun?
+Quadrimental - combining all 4 elementals
+Sharp - chance to inflict bleeding
+Injuring - chance to inflict injury,
+Berserking - chance to make the wielder berserk, which would
+Vampiric - life steal
+Leeching? - drains strength from the enemy, inflicting weakness on them and strength on the wielder
+
+
+BUFFS:
+stamina_regen_potion
+health_regen_potion
+injury - 15% less dodge and accuracy
+weakness - 25% less Strength
+strength - 20% more Strength
+toughness - +5 Protection?
+berserk? - 25% more Strength and Vitality, but you lose control over your character
+crippled - 50% less dodge
+blinded - 50% less accuracy, crits disabled
+deftness - 20% more Dexterity
+clumsiness - 25% less Dexterity
+
+
+
+ADD NPC SUBCLASS with AI functions
+
+For SPRITE work.
+Draw in 16*16 resolution, then upscale it to 64*64 resolution either with PAINT or with pygame.transform
