@@ -369,7 +369,7 @@ pygame.init()
 
 clock = pygame.time.Clock()
 
-font = pygame.freetype.Font("fonts\pixel_font.TTF", FONT_SIZE)
+font = pygame.freetype.Font("fonts\\pixel_font.TTF", FONT_SIZE)
 
 screen = pygame.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT], pygame.FULLSCREEN)
 SCREEN_WIDTH, SCREEN_HEIGHT = screen.get_size()
@@ -380,7 +380,7 @@ screen.fill((255, 255, 255))
 pygame.display.set_caption("dung_rogue")
 
 # SPRITES
-cornerTL = pygame.image.load("sprites\\ui\corner.png").convert_alpha()
+cornerTL = pygame.image.load("sprites\\ui\\corner.png").convert_alpha()
 cornerTL.set_colorkey((255, 0, 255))
 cornerTR = pygame.transform.rotate(cornerTL, 270)
 cornerTR.set_colorkey((255, 0, 255))
@@ -388,23 +388,23 @@ cornerBL = pygame.transform.rotate(cornerTL, 180)
 cornerBL.set_colorkey((255, 0, 255))
 cornerBR = pygame.transform.rotate(cornerTL, 90)
 cornerBR.set_colorkey((255, 0, 255))
-axe_surface = pygame.image.load("sprites\items\\hatchet.png").convert_alpha()
+axe_surface = pygame.image.load("sprites\\items\\hatchet.png").convert_alpha()
 axe_surface = pygame.transform.scale(axe_surface, (ITEM_SIZE, ITEM_SIZE))
 axe_surface.set_colorkey((255, 0, 255))
-inventory_slot = pygame.image.load("sprites\\ui\inv_slot.png").convert_alpha()
+inventory_slot = pygame.image.load("sprites\\ui\\inv_slot.png").convert_alpha()
 inventory_slot = pygame.transform.scale(inventory_slot, (INVENTORY_SLOT_SIZE, INVENTORY_SLOT_SIZE))
-floor_surface = pygame.image.load("sprites\map\\floor.png").convert_alpha()
+floor_surface = pygame.image.load("sprites\\map\\floor.png").convert_alpha()
 floor_surface = pygame.transform.scale(floor_surface, (SPRITE_SIZE, SPRITE_SIZE))
-wall_surface = pygame.image.load("sprites\map\\wall.png").convert_alpha()
+wall_surface = pygame.image.load("sprites\\map\\wall.png").convert_alpha()
 wall_surface = pygame.transform.scale(wall_surface, (SPRITE_SIZE, SPRITE_SIZE))
-door_surface = pygame.image.load("sprites\map\\door.png").convert_alpha()
+door_surface = pygame.image.load("sprites\\map\\door.png").convert_alpha()
 door_surface = pygame.transform.scale(door_surface, (SPRITE_SIZE, SPRITE_SIZE))  # !!!!!!
-void_surface = pygame.image.load("sprites\map\\void.png").convert_alpha()
+void_surface = pygame.image.load("sprites\\map\\void.png").convert_alpha()
 void_surface = pygame.transform.scale(void_surface, (SPRITE_SIZE, SPRITE_SIZE))
-player_surface = pygame.image.load("sprites\creatures\\player.png").convert_alpha()
+player_surface = pygame.image.load("sprites\\creatures\\player.png").convert_alpha()
 player_surface = pygame.transform.scale(player_surface, (SPRITE_SIZE, SPRITE_SIZE))
 player_surface.set_colorkey((255, 0, 255))
-hand_slot = pygame.transform.scale(pygame.image.load("sprites\\ui\hand_slot.png").convert_alpha(), (INVENTORY_SLOT_SIZE, INVENTORY_SLOT_SIZE))
+hand_slot = pygame.transform.scale(pygame.image.load("sprites\\ui\\hand_slot.png").convert_alpha(), (INVENTORY_SLOT_SIZE, INVENTORY_SLOT_SIZE))
 
 sprites = {"hatchet": axe_surface,
            "dagger": door_surface,
@@ -413,12 +413,12 @@ sprites = {"hatchet": axe_surface,
            "nordic_axe": colorkey(pygame.transform.scale(pygame.image.load("sprites\\items\\nordic_axe.png").convert_alpha(), (ITEM_SIZE, ITEM_SIZE)), (255, 0, 255)),
            "main_hand_slot": hand_slot,
            "off_hand_slot": pygame.transform.flip(hand_slot, True, False),
-           "head_slot": pygame.transform.scale(pygame.image.load("sprites\\ui\head_slot.png").convert_alpha(), (INVENTORY_SLOT_SIZE, INVENTORY_SLOT_SIZE)),
+           "head_slot": pygame.transform.scale(pygame.image.load("sprites\\ui\\head_slot.png").convert_alpha(), (INVENTORY_SLOT_SIZE, INVENTORY_SLOT_SIZE)),
            "torso_slot": pygame.transform.scale(pygame.image.load("sprites\\ui\\torso_slot.png").convert_alpha(), (INVENTORY_SLOT_SIZE, INVENTORY_SLOT_SIZE)),
-           "legs_slot": pygame.transform.scale(pygame.image.load("sprites\\ui\legs_slot.png").convert_alpha(), (INVENTORY_SLOT_SIZE, INVENTORY_SLOT_SIZE)),
+           "legs_slot": pygame.transform.scale(pygame.image.load("sprites\\ui\\legs_slot.png").convert_alpha(), (INVENTORY_SLOT_SIZE, INVENTORY_SLOT_SIZE)),
            "feet_slot": pygame.transform.scale(pygame.image.load("sprites\\ui\\feet_slot.png").convert_alpha(), (INVENTORY_SLOT_SIZE, INVENTORY_SLOT_SIZE)),
            "back_slot": pygame.transform.scale(pygame.image.load("sprites\\ui\\back_slot.png").convert_alpha(), (INVENTORY_SLOT_SIZE, INVENTORY_SLOT_SIZE)),
-           "glove_slot": pygame.transform.scale(pygame.image.load("sprites\\ui\glove_slot.png").convert_alpha(), (INVENTORY_SLOT_SIZE, INVENTORY_SLOT_SIZE)),
+           "glove_slot": pygame.transform.scale(pygame.image.load("sprites\\ui\\glove_slot.png").convert_alpha(), (INVENTORY_SLOT_SIZE, INVENTORY_SLOT_SIZE)),
            "floor": floor_surface,
            "wall": wall_surface,
            "door": door_surface,
